@@ -18,7 +18,7 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
-image = Image.open('Goal.png')  ### Cambia su web C:\Users\user\Downloads\Mauro_app\
+image = Image.open('Annuity.png')  ### Cambia su web C:\Users\user\Downloads\Mauro_app\
 st.sidebar.image(image, use_column_width=True)
 
 

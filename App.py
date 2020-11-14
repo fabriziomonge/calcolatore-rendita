@@ -77,15 +77,15 @@ if pagina == 'Applicazione':
             
     
     a0 = st.number_input('Capitale iniziale', 1000000) 
-    a3 = st.number_input('Rendita finanziaria mensile',0,100000, 2000)
-    a4 = st.slider('''% di adeguamento all' inflazione''',0,10,1)
+    a3 = st.number_input('Rendita finanziaria mensile',0,100000, 4000)
+    a4 = st.slider('''% di adeguamento all' inflazione''',0,10,2)
             
     multi = st.checkbox('Multi periodo')
 
     if multi == False:
 
         a22 = 0
-        a2 = st.slider('Periodo in cui verrà erogata la rendita (anni)', 0,40, 15)
+        a2 = st.slider('Periodo in cui verrà erogata la rendita (anni)', 0,40, 20)
         a1 = st.selectbox('Seleziona il portafoglio', list(portafogli.index))
         
         
@@ -166,7 +166,7 @@ if pagina == 'Applicazione':
         st.write('''###  ''')
         st.write('''#### Prima fase''')
 
-        a2 = st.slider('Durata primo periodo erogazione (anni)', 0,20, 5)
+        a2 = st.slider('Durata primo periodo erogazione (anni)', 0,20, 10)
         a1 = st.selectbox('Seleziona il portafoglio per il primo periodo', list(portafogli.index))
 
         st.write('''###  ''')

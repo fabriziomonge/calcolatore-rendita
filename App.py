@@ -74,17 +74,21 @@ if pagina == 'Applicazione':
 
 
     # In[ ]:
-
+            
+    
+    a0 = st.number_input('Capitale iniziale', 1000000) 
+    a3 = st.number_input('Rendita finanziaria mensile',0,100000, 2000)
+    a4 = st.slider('''% di adeguamento all' inflazione''',0,10,1)
+            
     multi = st.checkbox('Multi periodo')
 
     if multi == False:
 
         a22 = 0
-        a1 = st.selectbox('Seleziona il portafoglio', list(portafogli.index))
-        a0 = st.number_input('Capitale iniziale', 1000000) 
-        a3 = st.number_input('Rendita finanziaria mensile',0,100000, 2000)
         a2 = st.slider('Periodo in cui verrà erogata la rendita (anni)', 0,40, 15)
-        a4 = st.slider('''% di adeguamento all' inflazione''',0,10,1)
+        a1 = st.selectbox('Seleziona il portafoglio', list(portafogli.index))
+        
+        
         a4 = a4/100
         a4 = (a4+1)**(1/12)
         a2 = a2*12
@@ -157,9 +161,7 @@ if pagina == 'Applicazione':
         df = montecarlo_rendita(a0,mu, sigma, a3)
     
     if multi == True:
-        a0 = st.number_input('Capitale iniziale', 1000000)
-        a3 = st.number_input('Rendita finanziaria mensile',0,100000, 2000)
-        a4 = st.slider('''% di adeguamento all' inflazione''',0,10,1)
+
 
         st.write('''###  ''')
         st.write('''#### Prima fase''')

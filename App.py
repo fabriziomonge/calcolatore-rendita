@@ -81,13 +81,13 @@ if pagina == 'Applicazione':
 
         a22 = 0
         a1 = st.selectbox('Seleziona il portafoglio', list(portafogli.index))
-        a0 = st.number_input('Capitale iniziale', 10000) 
-        a3 = st.number_input('Rendita finanziaria mensile',0,100000, 200)
-        a2 = st.slider('Periodo in cui verrà erogata la rendita', 0,200, 50)
-        a4 = st.slider('''% di adeguamento all' inflazione''',0,10,0)
+        a0 = st.number_input('Capitale iniziale', 1000000) 
+        a3 = st.number_input('Rendita finanziaria mensile',0,100000, 2000)
+        a2 = st.slider('Periodo in cui verrà erogata la rendita (anni)', 0,40, 15)
+        a4 = st.slider('''% di adeguamento all' inflazione''',0,10,1)
         a4 = a4/100
         a4 = (a4+1)**(1/12)
-
+        a2 = a2*12
         
 
         # In[128]:
@@ -157,19 +157,19 @@ if pagina == 'Applicazione':
         df = montecarlo_rendita(a0,mu, sigma, a3)
     
     if multi == True:
-        a0 = st.number_input('Capitale iniziale', 10000)
-        a3 = st.number_input('Rendita finanziaria mensile',0,100000, 200)
-        a4 = st.slider('''% di adeguamento all' inflazione''',0,10,0)
+        a0 = st.number_input('Capitale iniziale', 1000000)
+        a3 = st.number_input('Rendita finanziaria mensile',0,100000, 2000)
+        a4 = st.slider('''% di adeguamento all' inflazione''',0,10,1)
 
         st.write('''###  ''')
         st.write('''#### Prima fase''')
 
-        a2 = st.slider('Durata primo periodo erogazione(anni)', 0,20, 10)
+        a2 = st.slider('Durata primo periodo erogazione (anni)', 0,20, 5)
         a1 = st.selectbox('Seleziona il portafoglio per il primo periodo', list(portafogli.index))
 
         st.write('''###  ''')
         st.write('''#### Seconda fase''')         
-        a22 = st.slider('Durata secondo periodo erogazione(anni)', 0,20, 10)
+        a22 = st.slider('Durata secondo periodo erogazione (anni)', 0,20, 10)
         a12 = st.selectbox('Seleziona il portafoglio per il secondo periodo', list(portafogli.index))       
         
         
